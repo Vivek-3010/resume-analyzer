@@ -33,12 +33,12 @@ function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-pink-200 to-blue-100 w-full pt-6">
       <Navbar />
-      <div className="main-section px-4 max-w-5xl mx-auto">
+      <div className="px-4 max-w-5xl mx-auto flex flex-col items-center">
         <div className="page-heading text-center mb-4">
-          <h1 className="text-xl font-semibold">
+          <h1 className="text-xl font-semibold mt-5">
             Track Your Applications and Resume Ratings
           </h1>
-          <h2 className="text-sm text-gray-700">
+          <h2 className="text-sm text-gray-700 mb-5">
             Review your submissions and get AI-powered feedback
           </h2>
         </div>

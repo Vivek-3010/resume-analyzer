@@ -150,3 +150,41 @@ form {
     opacity: 1;
   }
 }
+
+/* Hero section wrapper: responsive padding and centering */
+.hero-section {
+  @apply flex justify-center px-4 sm:px-6 lg:px-8 mt-4;
+}
+
+.hero-content {
+  @apply w-full max-w-3xl flex flex-col gap-2;
+}
+
+/* Title and subtitle */
+.hero-title {
+  @apply text-3xl sm:text-4xl font-semibold text-center mt-2;
+}
+
+.hero-subtitle {
+  @apply text-lg sm:text-xl text-center text-gray-700 mt-1;
+}
+
+/* Image wrapper to constrain and remove extra space */
+.hero-image-wrapper {
+  @apply w-full mt-2 flex justify-center;
+}
+
+.hero-image {
+  @apply block max-w-full h-auto rounded-lg shadow-md;
+  /* ensure no unexpected whitespace: */
+  display: block;
+}
+
+/* Optional: reduce default .main-section gap if used elsewhere */
+.main-section {
+  @apply flex flex-col items-center gap-4 pt-8 mx-4 pb-5;
+}
+
+.compact-form {
+  @apply flex flex-col gap-4;
+}
