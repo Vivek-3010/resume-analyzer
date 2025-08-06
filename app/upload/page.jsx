@@ -111,7 +111,7 @@ function Page() {
       console.log("Analysis completed successfully:", data);
       
       // Redirect to results page (you might want to implement this)
-      // router.push(`/results/${uuid}`);
+      router.push(`/resume/${uuid}`);
       
       // Reset form after successful completion
       setTimeout(() => {
