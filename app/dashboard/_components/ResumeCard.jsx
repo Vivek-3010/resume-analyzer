@@ -1,10 +1,28 @@
 // components/ResumeCard.tsx
 import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ScoreCircle from './ScoreCircle'
+import { usePuterStore } from '@/lib/puter'
 
 function ResumeCard({ resume }) {
+
+  const {auth, fs} = usePuterStore();
+  const [resumeUrl, setResumeUrl] = useState('');
+
+  useEffect(()=>{
+    const loadResume = async ()=>{
+      const blob = await fs.read(resume.imagePath);
+      if(!blob){
+        return;
+      }
+      let url = URL.createObjectURL(blob);
+      setResumeUrl(url);
+    }
+
+    loadResume();
+  }, [resume.imagePath])
+
   return (
     <div className="mb-6">
       <Link
@@ -23,14 +41,8 @@ function ResumeCard({ resume }) {
 
         <div className="gradient-border relative w-full">
           <div className="relative w-full aspect-[3/4] max-sm:aspect-[4/5]">
-            <Image
-              src={resume.imagePath}
-              alt={`${resume.companyName} resume snapshot`}
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 640px) 100vw, 33vw"
-              priority
-            />
+            <img src={resume.resumeUrl} alt="Resume preview" />
+
           </div>
         </div>
       </Link>
